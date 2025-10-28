@@ -50,7 +50,34 @@ liked_songs = {
         "genre": "rap"
     }
 }
+def check_song(playlist, newsongs):
+    for title, song in newsongs.items():
+        playlist[title] = song
+def search_song(liked_songs):
+        while True:
+            song_to_search = input(f'Enter song to search:')
+            if song_to_search == ".":
+                break
+            if song_to_search in liked_songs:
+                decision = input(f'Do you want to delete the song?')
+                if decision == "yes":
+                    del liked_songs[song_to_search]
+                elif decision =="no":
+                    pass
+def delete_by_artist(liked_songs):
+    songs_to_delete = []
+    artist = input(f'enter the songs of the artist u want to delete')
+    for song in (liked_songs):
+        if liked_songs[song]["artist"] == artist:
+            songs_to_delete.append(song)
+    if songs_to_delete:
+        for song in songs_to_delete:
+            del liked_songs[song]
+
 
 
 def main():
+
     pass
+
+
